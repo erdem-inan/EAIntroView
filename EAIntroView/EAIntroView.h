@@ -69,7 +69,7 @@ typedef NS_ENUM(NSUInteger, EAViewAlignment) {
 @property (nonatomic, assign) BOOL scrollingEnabled;
 @property (nonatomic, strong) NSArray *pages;
 
-- (id)initWithFrame:(CGRect)frame andPages:(NSArray *)pagesArray;
+- (id)initWithFrame:(CGRect)frame andPages:(NSArray *)pagesArray andRegisterOrientationChanges:(BOOL)registerOrientationChanges;
 
 - (void)showFullscreen;
 - (void)showFullscreenWithAnimateDuration:(CGFloat)duration;

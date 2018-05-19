@@ -57,7 +57,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.bgImage = [UIImage imageNamed:@"bg4"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     [intro setDelegate:self];
     
     [intro showInView:rootView animateDuration:0.3];
@@ -80,7 +80,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.title = @"This is page 4";
     page4.desc = sampleDescription4;
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     [intro setDelegate:self];
     UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
     intro.titleView = titleView;
@@ -119,7 +119,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.desc = sampleDescription4;
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     intro.bgImage = [UIImage imageNamed:@"bg2"];
     
     intro.pageControlY = 250.f;
@@ -169,7 +169,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.bgImage = [UIImage imageNamed:@"bg4"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     [intro.skipButton setTitle:@"Skip now" forState:UIControlStateNormal];
     [intro setDelegate:self];
     
@@ -198,7 +198,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.bgImage = [UIImage imageNamed:@"bg4"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     [intro setDelegate:self];
     
     UISwitch *switchControl = (UISwitch *)[page2.pageView viewWithTag:1];
@@ -300,7 +300,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon3"]];
     page4.titleIconPositionY = 260;
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4] andRegisterOrientationChanges:YES];
     intro.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigLogo"]];
     intro.titleViewY = 120;
     intro.tapToNext = YES;

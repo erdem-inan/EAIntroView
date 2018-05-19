@@ -33,7 +33,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self applyDefaultsToSelfDuringInitializationWithFrame:frame pages:nil];
+        [self applyDefaultsToSelfDuringInitializationWithFrame:frame pages:nil registerOrientationChanges:YES];
     }
     return self;
 }
@@ -41,22 +41,22 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self applyDefaultsToSelfDuringInitializationWithFrame:self.frame pages:nil];
+        [self applyDefaultsToSelfDuringInitializationWithFrame:self.frame pages:nil registerOrientationChanges:YES];
     }
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame andPages:(NSArray *)pagesArray {
+- (id)initWithFrame:(CGRect)frame andPages:(NSArray *)pagesArray andRegisterOrientationChanges:(BOOL)registerOrientationChanges {
     self = [super initWithFrame:frame];
     if (self) {
-        [self applyDefaultsToSelfDuringInitializationWithFrame:self.frame pages:pagesArray];
+        [self applyDefaultsToSelfDuringInitializationWithFrame:self.frame pages:pagesArray registerOrientationChanges:registerOrientationChanges];
     }
     return self;
 }
 
 #pragma mark - Private
 
-- (void)applyDefaultsToSelfDuringInitializationWithFrame:(CGRect)frame pages:(NSArray *)pagesArray {
+- (void)applyDefaultsToSelfDuringInitializationWithFrame:(CGRect)frame pages:(NSArray *)pagesArray registerOrientationChanges:(BOOL)registerOrientationChanges {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.swipeToExit = YES;
     self.easeOutCrossDisolves = YES;
@@ -79,11 +79,13 @@
     [self buildFooterView];
     
     // Add observer for device orientation:
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(deviceOrientationDidChange:)
-                                                 name:UIDeviceOrientationDidChangeNotification
-                                               object:nil];
+    if (registerOrientationChanges) {
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deviceOrientationDidChange:)
+                                                     name:UIDeviceOrientationDidChangeNotification
+                                                   object:nil];
+    }
 }
 
 - (void)applyDefaultsToBackgroundImageView:(UIImageView *)backgroundImageView {
